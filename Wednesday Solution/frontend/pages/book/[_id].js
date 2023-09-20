@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const API_ENDPOINT = 'http://localhost:5000';
+const API_ENDPOINT = 'https://book-review-backend-python.onrender.com';
 
 export default function BookDetail() {
     const router = useRouter();

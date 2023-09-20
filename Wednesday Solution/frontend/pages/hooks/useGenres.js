@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const API_ENDPOINT = 'http://localhost:5000';
+const API_ENDPOINT = 'https://book-review-backend-python.onrender.com';
 
 function BookComponent() {
     const [genres, setGenres] = useState([]);

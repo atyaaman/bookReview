@@ -18,16 +18,31 @@ export default function BookDetail() {
     }, [_id]);
 
     if (!book) {
-        return <p className="text-lg font-semibold">Loading...</p>;
+        return <p className="text-lg font-semibold text-center mt-20">Loading...</p>;
     }
-
+    if(book.message === "Book not found")
+    {
+        return <p className="text-lg font-semibold text-center mt-20">Book not Found</p>;
+    }
+    
     return (
-        <div className="container mx-auto mt-12 p-4 bg-white shadow-md rounded-lg">
-            <h1 className="text-3xl font-bold mb-4">{book.title}</h1>
-            <p className="text-xl mb-2"><span className="font-semibold">Author:</span> {book.author}</p>
-            <p className="text-xl mb-2"><span className="font-semibold">Genre:</span> {book.genre}</p>
-            <p className="text-xl mb-2"><span className="font-semibold">Type:</span> {book.paid ? 'Paid' : 'Free'}</p>
-            <p className="text-gray-700">{book.details}</p>
+
+        <div className="container mx-auto mt-20 p-8 bg-yellow-100 shadow-md rounded-lg flex flex-col md:flex-row justify-between">
+            <div className="w-full md:w-1/3 p-4">
+                <img src={book.cover_image_url} alt={`${book.title} cover`} className="rounded-md w-full object-cover shadow-lg" />
+            </div>
+            <div className="w-full md:w-2/3 p-4 ">
+                <h1 className="text-4xl font-bold mb-6">{book.title}</h1>
+                <p className="text-xl mb-4"><span className="font-semibold">Author:</span> {book.author}</p>
+                <p className="text-xl mb-4"><span className="font-semibold">Genre:</span> {book.genre}</p>
+                <p className="text-xl mb-4"><span className="font-semibold">Publication Date:</span> {book.publication_date}</p>
+                <p className="text-xl mb-4"><span className="font-semibold">Description:</span> {book.description}</p>
+                
+                <p className="text-xl mb-4"><span className="font-semibold">Type:</span> {book.paid ? 'Paid' : 'Free'}</p>
+                
+                {/* Add any other details of the book as needed */}
+            </div>
+
         </div>
     );
 }

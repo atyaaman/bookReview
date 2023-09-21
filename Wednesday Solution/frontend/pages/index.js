@@ -22,7 +22,7 @@ export default function HomePage() {
 
     return (
         <div className="bg-gradient-to-tr from-purple-300 to-blue-200 min-h-screen p-6">
-            <h1 className="text-5xl font-bold mb-10 text-white">Discover Books</h1>
+            <h1 className="text-5xl font-bold mb-10 text-white">Discover Books by: Aman Atya</h1>
             <div className="bg-white p-6 rounded-lg shadow-lg mb-10">
                 <div className="mb-6 flex items-center gap-4">
                     <input

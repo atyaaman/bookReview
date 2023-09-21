@@ -64,15 +64,31 @@ export default function HomePage() {
                     ))}
                 </div>
 
-                <button
-                    onClick={fetchNextPage}
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:from-purple-600 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 shadow-md transform transition hover:scale-105 active:scale-95"
-                >
-                    <span className="flex items-center space-x-2">
-                        <span>Load More Books</span>
-                        
-                    </span>
-                </button>
+                <div>
+                    {/* Previous Page Button - only show if we're not on the first page */}
+                    {page > 1 && (
+                        <button
+                            onClick={fetchPreviousPage}
+                            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 mr-4 rounded-full hover:from-purple-600 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 shadow-md transform transition hover:scale-105 active:scale-95"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <span>Previous Page</span>
+                            </span>
+                        </button>
+                    )}
+
+                    {/* Next Page Button - only show if there are more books to fetch */}
+                    {books.length > 0 && (
+                        <button
+                            onClick={fetchNextPage}
+                            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:from-purple-600 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 shadow-md transform transition hover:scale-105 active:scale-95"
+                        >
+                            <span className="flex items-center space-x-2">
+                                <span>Next Page</span>
+                            </span>
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

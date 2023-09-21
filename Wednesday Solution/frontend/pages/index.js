@@ -48,21 +48,23 @@ export default function HomePage() {
                     </select>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                     {books.map(book => (
                         <Link key={book._id} href={`/book/${book._id}`}>
-                            <div className="p-4 border rounded-lg hover:shadow-xl hover:bg-blue-100 cursor-pointer transition transform hover:scale-105">
+                            <div className="p-4 border rounded-lg hover:shadow-xl hover:bg-blue-100 cursor-pointer transition transform hover:scale-105 flex items-center">
                                 {/* Book Cover Image */}
-                                <div className="flex justify-center items-center mb-4 overflow-hidden rounded-md shadow-lg bg-gray-200 aspect-w-3 aspect-h-4">
+                                <div className="flex-none mr-4 overflow-hidden rounded-md shadow-lg bg-gray-200 aspect-w-3 aspect-h-4 w-32">
                                     <img src={book.cover_image_url} alt={`${book.title} cover`} className="object-cover w-full h-full" />
                                 </div>
-                                <h2 className="text-xl font-semibold mb-2 text-blue-600">{book.book_name}</h2>
-                                <p className="text-gray-700 mb-1">By: {book.author}</p>
-                                <p className="text-purple-600 mb-1">{book.genre}</p>
-                                <p className="text-gray-500 mb-1">Published: {book.publication_date}</p>
-                                <p className={book.paid ? 'text-red-500 font-bold' : 'text-green-500 font-bold'}>
-                                    {book.paid ? 'Paid' : 'Free'}
-                                </p>
+                                <div className="flex-grow">
+                                    <h2 className="text-xl font-semibold mb-2 text-blue-600">{book.book_name}</h2>
+                                    <p className="text-gray-700 mb-1">By: {book.author}</p>
+                                    <p className="text-purple-600 mb-1">{book.genre}</p>
+                                    <p className="text-gray-500 mb-1">Published: {book.publication_date}</p>
+                                    <p className={book.paid ? 'text-red-500 font-bold' : 'text-green-500 font-bold'}>
+                                        {book.paid ? 'Paid' : 'Free'}
+                                    </p>
+                                </div>
                             </div>
                         </Link>
                     ))}

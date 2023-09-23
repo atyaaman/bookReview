@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react';
-
-const API_ENDPOINT = 'https://book-review-backend-python.onrender.com';
+import { fetchBooks } from '../book/utility/fetchBooks';
+// const API_ENDPOINT = 'https://book-review-backend-python.onrender.com';
 
 function useBooks(searchParams) {
     const [books, setBooks] = useState([]);
-
-    // Convert searchParams object to a query string.
-    const queryString = new URLSearchParams(searchParams).toString();
-
+    const [error, setError] = useState(null);
+   
     useEffect(() => {
-        fetch(`${API_ENDPOINT}/books?${queryString}`)
-            .then((response) => response.json())
-            .then((data) => setBooks(data));
-    }, [queryString]); // Update the dependency to queryString
+    const fetchAndSetBooks = async () => {
+      const result = await fetchBooks(searchParams);
+      setBooks(result.books);
+      setError(result.error);
+    };
+    fetchAndSetBooks();
+  }, [searchParams]);
 
-    return books;
+  return { books, error };
 }
 
 export default useBooks;

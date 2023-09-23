@@ -35,6 +35,15 @@ def get_books():
         paid_status_filter = request.args.get('paidStatus', "all")
         query = {}
 
+        if not isinstance(title_search, str) or len(title_search) > 255:
+            return jsonify({"error": "Invalid title format or length"}), 400
+        if not isinstance(author_search, str) or len(author_search) > 255:
+            return jsonify({"error": "Invalid author format or length"}), 400
+        if page < 1:
+            return jsonify({"error": "Page number should be greater than 0"}), 400
+        if paid_status_filter not in ["all", "paid", "free"]:
+            return jsonify({"error": "Invalid paid status filter"}), 400
+
         # Handle searching by title and/or author
         if title_search or author_search:
             or_conditions = []
@@ -73,7 +82,6 @@ def get_genres():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# ... [Other code remains unchanged]
 
 @app.route('/book/<string:book_id>', methods=['GET'])
 def get_book_by_id(book_id):
@@ -165,7 +173,7 @@ def import_books():
             for item in data:
                 item['_id'] = (item['_id'])
             books_collection.insert_many(data)
-    # ... [Code for importing books]
+    
 
         return jsonify({"message": "Books imported successfully"}), 200
     except Exception as e:

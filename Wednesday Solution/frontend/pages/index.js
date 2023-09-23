@@ -2,7 +2,7 @@ import useBooks from './hooks/useBooks';
 import BookComponent from './hooks/useGenres';
 import Link from 'next/link';
 import { useState } from 'react';
-import { fetchBooks } from './utility/fetchBooks';
+import { fetchBooks } from './hooks/fetchBooks';
 import useSWR from 'swr';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';

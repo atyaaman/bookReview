@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
+import Link from 'next/link';
 const API_ENDPOINT = 'https://book-review-backend-python.onrender.com';
 
 export default function BookDetail() {
@@ -28,6 +28,7 @@ export default function BookDetail() {
     return (
 
         <div className="container mx-auto mt-20 p-8 bg-yellow-100 shadow-md rounded-lg flex flex-col md:flex-row justify-between">
+
             <div className="w-full md:w-1/3 p-4">
                 <img src={book.cover_image_url} alt={`${book.title} cover`} className="rounded-md w-full object-cover shadow-lg" />
             </div>

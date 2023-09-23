@@ -10,6 +10,25 @@ CRUD Operations: The system facilitates creating, reading, updating, and deletin
 
 Data Export and Import: Users have the ability to export their book collections in either CSV or JSON formats. Furthermore, they can import data in bulk, streamlining data migration.
 
+It also has features like : 
+- Prioritise data integrity by input validation and comprehensive error handling.
+- Harness Next.js’s versatile features such as Server-Side Rendering (SSR), Static Site
+Generation (SSG), or Incremental Static Generation (ISG) based on your specific
+requirements.
+- Utilise Next.js’s adept data fetching mechanisms to manage asynchronous data
+retrieval.
+
+- Optimise image loading with Next.js’s built-in Image component, enhancing the overall
+performance.
+- Consider incorporating the Material UI component library for a consistent and visually
+appealing interface.
+- To ensure modular and maintainable styling, embrace the power of Styled Components
+or Emotion
+
+
+
+
+
 Challenges: Initially, I lacked knowledge of both Flask and Next.js. then i took approaches like: reading relevant blogs and exploring YouTube tutorials.
 These strategies equipped me with a foundational understanding of the technologies. 
 As I embarked on the project, whenever I encountered challenges, I turned to the internet for guidance. 

@@ -2,7 +2,7 @@ import useBooks from './hooks/useBooks';
 import BookComponent from './hooks/useGenres';
 import Link from 'next/link';
 import { useState } from 'react';
-import { fetchBooks } from './book/utility/fetchBooks';
+import { fetchBooks } from './utility/fetchBooks';
 import useSWR from 'swr';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -93,7 +93,7 @@ export default function HomePage({initialBooks}) {
  
     return (
         <div className="bg-gradient-to-tr from-purple-300 to-blue-200 min-h-screen p-6">
-            <h1 className="text-5xl font-bold mb-10 text-white">Discover Books :- By aman atya</h1>
+            <h1 className="text-5xl font-bold mb-10 text-white">Discover Books :- By Aman</h1>
             <div className="bg-white p-6 rounded-lg shadow-lg mb-10">
                 <div className="mb-6 flex items-center gap-4">
                 <SearchInput
